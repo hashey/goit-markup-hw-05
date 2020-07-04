@@ -102,10 +102,29 @@ body {
 .site-nav .link.current {
   color: var(--accent-text-color);
 }
+.site-nav > .item {
+  position: relative;
+}
+
+.site-nav .link.current::after {
+  content: '';
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  display: inline-block;
+  width: 100%;
+  height: 4px;
+
+  background-color: var(--accent-text-color);
+  border-radius: 2px;
+}
 
 .site-nav .item + .item {
   margin-left: 50px;
 }
+
 /* Header contacts */
 
 .header-contacts {
@@ -370,16 +389,27 @@ footer {
   margin-right: 30px;
 }
 
-.examples .title {
-  color: var(--primary-white-color);
-  /* ВРЕМЕННО ДОБАВЛЕН ФОН ДЛЯ ОТОБРАЖЕНИЯ ТЕКСТА */
-  background-color: var(--accent-text-color);
+.example-sign {
+  position: relative;
+}
 
+.examples .title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: 0 0;
+  padding-top: 27px;
+  padding-bottom: 27px;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
   text-align: center;
   text-transform: uppercase;
+
+  color: var(--primary-white-color);
+  background-color: rgba(47, 48, 58, 0.8);
 }
 
 /* Team section */
@@ -518,8 +548,7 @@ footer {
   letter-spacing: inherit;
 
   padding: 6px 22px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.08),
-    0px 3px 1px rgba(0, 0, 0, 0.1);
+
   border-radius: 4px;
   border-color: transparent;
 }
@@ -533,6 +562,8 @@ footer {
 .button.active {
   color: var(--primary-white-color);
   background-color: var(--accent-text-color);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 3px 1px rgba(0, 0, 0, 0.1);
 }
 
 .button.sleep {
@@ -571,7 +602,6 @@ footer {
 
 .portfolio .description {
   color: var(--primary-white-color);
-  background-color: var(--accent-text-color);
 
   font-weight: 400;
   font-size: 18px;
@@ -617,4 +647,44 @@ footer {
 .sample .item:focus {
   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
     0px 1px 1px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+.sample-backdrop {
+  position: relative;
+}
+
+.sample-backdrop::before {
+  display: inline-block;
+  content: '';
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* z-index: 2; */
+
+  background-color: rgba(33, 150, 243, 0.9);
+
+  opacity: 0;
+}
+
+.sample .description {
+  width: 322px;
+  height: 168px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* z-index: 3; */
+
+  opacity: 0;
+  overflow: hidden;
+}
+
+.sample .item:hover .sample-backdrop::before,
+.sample .item:hover .description {
+  opacity: 1;
 }
