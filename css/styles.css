@@ -148,7 +148,6 @@ body {
 .header-contacts .link:hover,
 .header-contacts .link:focus {
   color: var(--accent-text-color);
-  /* --color1: var(--accent-text-color); */
 }
 
 .header-contacts .link:hover .button-icon {
@@ -217,7 +216,7 @@ footer {
 .footer-social .item:not(:last-child) {
   margin-right: 10px;
 }
-.button-social {
+.footer-social .button-social {
   width: 44px;
   height: 44px;
 
@@ -225,7 +224,7 @@ footer {
   background-color: rgba(255, 255, 255, 0.1);
   border-color: transparent;
 
-  --color2: var(--primary-white-color);
+  fill: var(--primary-white-color);
 
   transition: all 250ms var(--timing-cube);
 }
@@ -486,15 +485,18 @@ footer {
   height: 44px;
 
   border-radius: 50%;
+
   background-color: transparent;
   border-color: transparent;
 
-  --color2: var(--button-company-color);
+  fill: var(--button-company-color);
+
+  transition: all 250ms var(--timing-cube);
 }
 
 .team-social .button-social:hover,
 .team-social .button-social:focus {
-  --color2: var(--primary-white-color);
+  fill: var(--primary-white-color);
   background-color: var(--accent-text-color);
   cursor: pointer;
 }
@@ -506,14 +508,14 @@ footer {
   justify-content: center;
 }
 
-/* ВРЕМЕННО для внешнего вида */
+/* Кнопки компаний */
 .partners .button-company {
   width: 170px;
   height: 90px;
 
   background-color: transparent;
   border: 1px solid var(--button-company-color);
-  --color5: var(--button-company-color);
+  fill: var(--button-company-color);
   box-sizing: border-box;
   border-radius: 4px;
   cursor: pointer;
@@ -524,7 +526,7 @@ footer {
 .partners .button-company:hover,
 .partners .button-company:focus {
   border: 1px solid var(--accent-text-color);
-  --color5: var(--accent-text-color);
+  fill: var(--accent-text-color);
 }
 
 .partners > .item:not(:last-child) {
